@@ -24,3 +24,15 @@ end
 
 Hello.word()
 ```
+
+## Passing a string into a function
+
+```elixir
+defmodule Hi do
+  def word(name) do
+    IO.puts("Hello Kgotso #{name}")
+  end
+end
+
+Hi.word("kgotso")
+```
