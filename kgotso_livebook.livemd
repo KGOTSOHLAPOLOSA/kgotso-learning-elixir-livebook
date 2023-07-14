@@ -133,3 +133,16 @@ chars = 'kgotso'
 # You can also check data tye using simply:
 is_list(chars)
 ```
+
+## Procesess
+
+```elixir
+# Runs in processes 
+# Idenified by PID 
+# Inter-ccommunication by Message Passing. Each Process has its Stack & Heap alocation
+# Like humans we dont share data, we just communicate using languages 
+
+# check process ID
+my_pid = self()
+my_pid
+```
