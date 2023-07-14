@@ -36,3 +36,18 @@ end
 
 Hi.word("kgotso")
 ```
+
+## DATA TYPES
+
+## Atom
+
+```elixir
+# Atoms are useful in cases of applications
+# The syntax is just a colon before its name ==> :some_name ... 
+# ...if a name of an atom has a space, then u put it in double inverted commas ==> :"Some Name"
+:error
+{:error, reason} = {:error, "invalid command"}
+# {} these curly brackets are called turples
+
+# Its important to note LHS is assigned to RHS...
+```
