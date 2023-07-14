@@ -51,3 +51,67 @@ Hi.word("kgotso")
 
 # Its important to note LHS is assigned to RHS...
 ```
+
+```elixir
+# .. so  you can just call LHS, and should expect RHS assigned value
+reason
+```
+
+## Strings
+
+```elixir
+# Strings are created using double colons
+"Kgotso"
+# We can check the type of the data structure by using i. i is a function that checks data type...
+# ... by saying i("Kgotso") on interactive terminal (iex), we get info of a data type i.e datatype, byte size, description and row representation
+# Strings are saved as colection of bytes
+```
+
+```elixir
+name = "Jerry"
+# checks if a varibale is a string
+is_binary(name)
+```
+
+```elixir
+# Adding strings 
+message = "Hello " <> name
+```
+
+```elixir
+# We can use the power of pattern matching to extract contents  of the string
+
+# <> this is called a string concentration operator
+"M" <> rest = "Mcasino"
+# rest here is assigned all th e characters after M
+```
+
+```elixir
+# you can decode a character  n this simple way 
+?a
+```
+
+```elixir
+# Extracting the code of the character using Patterm Matching
+name = "kgotso"
+
+# the variabe first is going to extract the first charter of name. storing the rest of name's charater as binary
+<<first, rest::binary>> = name
+first
+```
+
+```elixir
+# check if its code number
+first == ?o
+```
+
+```elixir
+# it returns as string/binary
+rest
+```
+
+```elixir
+# You can specify how many character you want to extract in a string
+<<first::binary-size(3), rest::binary>> = name
+first
+```
