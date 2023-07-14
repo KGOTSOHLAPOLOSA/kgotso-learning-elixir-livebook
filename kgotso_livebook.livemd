@@ -57,6 +57,10 @@ Hi.word("kgotso")
 reason
 ```
 
+```elixir
+
+```
+
 ## Strings
 
 ```elixir
@@ -133,6 +137,26 @@ chars = 'kgotso'
 # You can also check data tye using simply:
 is_list(chars)
 ```
+
+## Turple
+
+```elixir
+# data is saved continuosly inside a memory
+# created with curly brackets
+# normally dont use more than 4 elements inside of a turple, rather go for List
+
+{a, b} = {1, 3}
+a
+```
+
+```elixir
+# exampl of a simle applction in server using turple
+{:reply, msg, state} = {:reply, "Input not found", ["good", "complete", "no isssues"]}
+
+state
+```
+
+## Section
 
 ## Procesess
 
