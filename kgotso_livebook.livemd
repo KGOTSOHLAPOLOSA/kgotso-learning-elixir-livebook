@@ -156,8 +156,6 @@ a
 state
 ```
 
-## Section
-
 ## Procesess
 
 ```elixir
@@ -225,3 +223,24 @@ h
 ```elixir
 t
 ```
+
+## Keyword List
+
+```elixir
+#
+#
+# a is a key, 1 is value. A key is actally an atom
+data = [a: 1, b: 2]
+```
+
+```elixir
+# pattern match
+[{:a, 1}] = [a: 1]
+```
+
+```elixir
+# extracting for keyword list
+data[:a]
+```
+
+## Section
