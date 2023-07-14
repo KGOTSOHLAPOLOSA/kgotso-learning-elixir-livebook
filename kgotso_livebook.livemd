@@ -146,3 +146,58 @@ is_list(chars)
 my_pid = self()
 my_pid
 ```
+
+## Linked List (Singly)
+
+```elixir
+# Linked list are not List
+# Not a regular array or list
+list = ["a", "b", "c"]
+
+# it is important to note that in ELixir Linked List are recursive
+
+# you cant index in Linked list in Elixir
+
+# list{0}  # I get an error
+```
+
+```elixir
+Enum.at(list, 0)
+```
+
+```elixir
+# Enum. + Tab ==> shows list og argumnts can each func take . Func Arity. On the Interactive Tool
+# h  Enum.at ==>Helper function.  brings documentationo Interation Tool
+# Pattern match 
+[first, second, third] = list
+second
+```
+
+```elixir
+# You can ignore some couple of elements in a list by using an underscore
+[_, _, third] = ["P", "I", "D"]
+third
+```
+
+```elixir
+# you can get the head of the list 
+# returns first element
+hd(list)
+```
+
+```elixir
+# can get the rest of the list  and ignore the first elemey
+tl(list)
+```
+
+```elixir
+# Cons operator |
+# it is used to Pattern match
+# assigning first element to h and rest to t
+[h | t] = list
+h
+```
+
+```elixir
+t
+```
