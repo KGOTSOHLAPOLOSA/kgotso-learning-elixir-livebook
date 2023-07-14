@@ -11,3 +11,16 @@ c = a + b
 
 IO.puts("The sum of #{a} and #{b} is #{c}.")
 ```
+
+## Understanding a module and a function
+
+```elixir
+defmodule Hello do
+  # word is a function 
+  def word do
+    IO.puts("Hello Kgotso")
+  end
+end
+
+Hello.word()
+```
