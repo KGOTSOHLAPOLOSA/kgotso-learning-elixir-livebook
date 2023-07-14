@@ -243,4 +243,48 @@ data = [a: 1, b: 2]
 data[:a]
 ```
 
-## Section
+## Maps
+
+```elixir
+# One of the key thing about mps is that it can be used with different data types
+my_map = %{a: 1, b: 2, c: 3}
+my_map
+```
+
+```elixir
+# Pattern match
+%{a: first, b: second, c: third} = my_map
+first
+```
+
+```elixir
+# can pattern match  one by one, no need to for the whole map
+%{b: second} = my_map
+second
+```
+
+```elixir
+# we can use dot notation to access stuff in a map
+my_map.a
+```
+
+```elixir
+# map created ussing string
+map2 = %{"a" => 1, "b" => 2, "c" => 3}
+```
+
+```elixir
+# exctracting frm a string map
+%{"c" => c} = map2
+c
+```
+
+```elixir
+# Uodating a map with strings
+map2 = %{map2 | "c" => 4}
+```
+
+```elixir
+# updating map with Atom 
+my_map = %{my_map | c: 4}
+```
