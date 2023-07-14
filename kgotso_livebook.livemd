@@ -288,3 +288,30 @@ map2 = %{map2 | "c" => 4}
 # updating map with Atom 
 my_map = %{my_map | c: 4}
 ```
+
+## Struct
+
+```elixir
+# Sturct is defined within a module
+# filds in struct are defined in form of keys
+
+defmodule User do
+  defstruct username: "", email: "", age: nil
+end
+```
+
+```elixir
+# working with struct is similiar like working with a map
+user1 = %User{username: "kgotso", email: "kgotsohlapolosa@gmail.com", age: 21}
+```
+
+```elixir
+# extracting from a struct
+%{username: username} = user1
+username
+```
+
+```elixir
+# Updating in a struct
+user1 = %{user1 | age: 29}
+```
