@@ -1,0 +1,13 @@
+# Kgotso Learning Elixir
+
+## Pattern matching
+
+```elixir
+# Pattern matching->It allows you to destructure and match values against patterns, enabling you to extract and manipulate data ..
+# in a concise and expressive way
+a = 10
+b = 20
+c = a + b
+
+IO.puts("The sum of #{a} and #{b} is #{c}.")
+```
