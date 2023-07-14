@@ -115,3 +115,21 @@ rest
 <<first::binary-size(3), rest::binary>> = name
 first
 ```
+
+## Charlist
+
+```elixir
+# Charlist - collection of charaters in a list
+# [] - square brackets  to represent collection of characters within a list , represented by integers
+chars = 'kgotso'
+```
+
+```elixir
+# You can add list as well using ++ instead of <> like in strings
+'Hello ' ++ chars
+```
+
+```elixir
+# You can also check data tye using simply:
+is_list(chars)
+```
