@@ -402,3 +402,33 @@ else
   "ELse this will work"
 end
 ```
+
+## MIX
+
+Mix -  MIX provides a set of commands and tasks to help you create, manage, and build Elixir projects. It simplifies tasks such as creating a new project, compiling code, running tests, managing dependencies, and more.
+
+<!-- livebook:{"break_markdown":true} -->
+
+When you create a new Elixir project using MIX, it generates several files and folders to organize your project's codebase. Here is a short description of some of the key files and folders that MIX creates:
+
+mix.exs: This is the project configuration file written in Elixir. It contains information about the project, such as its name, version, dependencies, and other settings.
+
+lib/: This folder is where you typically store your project's Elixir source code files. The folder structure inside lib/ mirrors the application structure.
+
+test/: This folder is used to store the test files for your project. Elixir's built-in testing framework, ExUnit, is commonly used to write and run tests in this directory.
+
+config/: This folder contains configuration files for the project. Common files include config.exs, where you can configure various settings for different environments (development, test, production, etc.).
+
+deps/: This folder is automatically created to store the project's dependencies when you fetch them using MIX.
+
+_build/: This folder is created when you compile your project with MIX. It contains the compiled artifacts, such as bytecode and other necessary files, organized by environment.
+
+priv/: This folder is for private files, such as static assets or resources that are used by the application.
+
+assets/ (sometimes included, but depends on the project template): This folder is used for web applications and contains frontend-related assets, such as JavaScript, CSS, and other static files
+
+```elixir
+# To create a new project using mix ..
+# .. simply type mix new Project_Name
+# Then you can open it with code editor by simly getting inside #Project_name then type code . on terminal
+```
