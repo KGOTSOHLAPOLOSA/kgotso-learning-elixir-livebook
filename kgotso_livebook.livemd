@@ -375,3 +375,20 @@ case post1 do
   _ -> "None of the above"
 end
 ```
+
+## Cond - Flow Mechanism
+
+```elixir
+cond do
+  post1.author == "Kgotso Hlapolosa" -> "This is kgotso"
+  post1.author == "Thato" -> "this is thato"
+  true -> "This is it"
+end
+```
+
+```elixir
+cond do
+  hd(list) == 1 -> "Got a one"
+  true -> "Head is #{hd(list)}"
+end
+```
