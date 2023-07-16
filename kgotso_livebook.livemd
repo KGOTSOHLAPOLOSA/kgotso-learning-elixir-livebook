@@ -77,14 +77,16 @@ name = "Jerry"
 is_binary(name)
 ```
 
+this is my great string
+
 ```elixir
 # Adding strings 
 message = "Hello " <> name
 ```
 
-```elixir
-# We can use the power of pattern matching to extract contents  of the string
+### We can use the power of pattern matching to extract contents  of the string
 
+```elixir
 # <> this is called a string concentration operator
 "M" <> rest = "Mcasino"
 # rest here is assigned all th e characters after M
@@ -314,4 +316,62 @@ username
 ```elixir
 # Updating in a struct
 user1 = %{user1 | age: 29}
+```
+
+## Case - Flow Mechanism
+
+```elixir
+# Case behave like  switch statements
+list = [1, 2, 3]
+```
+
+```elixir
+case Enum.at(list, 2) do
+  1 -> "This is a good sign"
+  3 -> "This is alright"
+  _ -> "nothing at all"
+end
+```
+
+```elixir
+# Cases can be used with any data structure or type
+# this example here is for Struct
+
+defmodule Post do
+  defstruct(
+    id: nil,
+    tittle: "",
+    description: "",
+    author: ""
+  )
+end
+```
+
+```elixir
+# Now fill in contents of your struct
+post1 = %Post{id: 1, tittle: "This is the story", author: "Kgotso Hlapolosa"}
+```
+
+```elixir
+# Now create a case for post1
+case post1 do
+  %{author: "Kgotso Hlapolosa"} -> "Kgotso saw this"
+  %{author: "Thato"} -> "This is thato"
+  _ -> "None of the above"
+end
+```
+
+```elixir
+# You can update post1 like any other map
+post1 = %{post1 | author: "Blessing"}
+```
+
+```elixir
+# Update and reevaluate 
+# Now create a case for post1
+case post1 do
+  %{author: "Kgotso Hlapolosa"} -> "Kgotso saw this"
+  %{author: "Thato"} -> "This is thato"
+  _ -> "None of the above"
+end
 ```
