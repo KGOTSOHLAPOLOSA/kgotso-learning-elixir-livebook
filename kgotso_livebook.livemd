@@ -388,7 +388,17 @@ end
 
 ```elixir
 cond do
-  hd(list) == 1 -> "Got a one"
+  hd(list) == 2 -> "Got a one"
   true -> "Head is #{hd(list)}"
+end
+```
+
+## if/else Flow Mechanism
+
+```elixir
+if true do
+  "this will work"
+else
+  "ELse this will work"
 end
 ```
