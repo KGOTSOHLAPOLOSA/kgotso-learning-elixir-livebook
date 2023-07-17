@@ -519,3 +519,19 @@ end
 
 Recursive3.upto(3)
 ```
+
+This Tail Recursive function uses LESS MEMORY.also REUSE THE SAME STACK, meaning there is no exra memoty allocation
+
+## Recursion -Factorial
+
+```elixir
+# Remember factorial. 3! = 3*2*1 = 6
+defmodule Recursive4 do
+  # base case
+  def of(1), do: 1
+  # recursive func. 
+  def of(num), do: num * of(num - 1)
+end
+
+Recursive4.of(3)
+```
