@@ -535,3 +535,17 @@ end
 
 Recursive4.of(3)
 ```
+
+We can do the same but using Tail Recursion
+
+```elixir
+defmodule Recursion5 do
+  # function defination
+  def of_tail_rec(num, acc \\ 1)
+  # base case 
+  def of_tail_rec(1, acc), do: acc
+  def of_tail_rec(num, acc), do: of_tail_rec(num - 1, acc * num)
+end
+
+Recursion5.of_tail_rec(3)
+```
