@@ -782,3 +782,102 @@ You can even use a much shorter version tuo return the name of the wonder:
 # reference to an anonymous function, and this function is going to return the name back
 Enum.map(all_wonders, & &1.name)
 ```
+
+For Comprehenesion
+we can use for to extract name
+
+```elixir
+for %{name: name} <- all_wonders, do: name
+```
+
+## Expense Manager - Project
+
+```elixir
+defmodule Expense do
+  alias Expense
+
+  defstruct(
+    title: "",
+    date: nil,
+    amount: 0,
+    store: ""
+  )
+
+  @type t :: %Expense{
+          title: String.t(),
+          date: Date.t() | nil,
+          amount: number(),
+          store: String.t()
+        }
+
+  @spec sample :: [t()]
+  def sample do
+    [
+      %Expense{title: "iphone", date: ~D[2022-09-12], amount: 6000, store: "Apple"},
+      %Expense{title: "Clothes", date: ~D[2022-09-13], amount: 5000, store: "Markham"},
+      %Expense{title: "Gadgets", date: ~D[2022-09-14], amount: 4000, store: "Game"}
+    ]
+  end
+
+  # --------- CALCULATE THE TOTAL AMOUNT SPENT ---------
+  @spec total([t]) :: number()
+  def total(expense) do
+    expense |> Enum.reduce(0, fn expense, acc -> expense.amount + acc end)
+  end
+
+  # ----------  SORT BY DATE -------------
+  def sort_by_date(expense) do
+    expense |> Enum.sort_by(& &1.date)
+  end
+
+  # --------------ADDING AN EXPENSE ON A  SAMPLE LIST -------
+
+  @spec add_expense(t) :: [t()]
+  def add_expense(%Expense{} = expense) do
+    [expense | sample]
+  end
+
+  # ---------- UPDATING AN EXPSENSE THAT IS ON A SAMPLE LIST -----
+
+  def update_amount(title, amount) do
+    # first: you want to filter the item you want to update
+    # Second: you want create a new expense with an updated amount. * Remember all the data types in Elixir are IMMUTABLW
+    # third: you want to add this new update expenses onto our list and take out the old one.
+    # filters
+    [item] = Enum.filter(sample(), fn %{title: expense_title} -> expense_title == title end)
+    # creates a new item
+    new_item = %{item | amount: amount}
+    # append new item to sample list |> delete old item
+    [new_item | sample() |> List.delete(item)]
+  end
+end
+
+sample = Expense.sample()
+```
+
+A funtion to calculate the total amount spens on all items:
+
+```elixir
+Expense.total(sample)
+```
+
+Sort expense by the date:
+
+```elixir
+Expense.sort_by_date(sample)
+```
+
+Adding an Expense on a list of Sample:
+
+```elixir
+expense = %Expense{title: "Stationary", date: ~D[2022-09-15], amount: 3000, store: "CNN"}
+# now we have a new expsense, we must now add it to the list
+# adding Stationary to Sample
+Expense.add_expense(expense)
+```
+
+Update an expense inside a Sample List:
+
+```elixir
+Expense.update_amount("iphone", 8000)
+```
