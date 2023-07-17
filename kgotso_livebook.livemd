@@ -432,3 +432,26 @@ assets/ (sometimes included, but depends on the project template): This folder i
 # .. simply type mix new Project_Name
 # Then you can open it with code editor by simly getting inside #Project_name then type code . on terminal
 ```
+
+## Recursion - Tail Recursion - Print Digits
+
+This code below here prints digits in Ascending Stage.
+
+```elixir
+defmodule Recursion do
+  # This is a base case, incse the input is zero, return zero and exit
+  def upto(0), do: 0
+
+  # Receives an input number
+  def upto(nums) do
+    # it prints the input number
+    IO.puts(nums)
+
+    # Here subtract the input number by 1, then go back to the base case and repeat the previous steps
+    upto(nums - 1)
+  end
+end
+
+# Input number is 3. So we expect 3 2 1 0 to be printed
+Recursion.upto(3)
+```
