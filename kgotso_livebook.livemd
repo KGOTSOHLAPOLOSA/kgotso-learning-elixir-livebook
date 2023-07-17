@@ -669,3 +669,62 @@ end
 
 Recursion11.concat([1, 2, 3], [4, 5, 6])
 ```
+
+## Seven Wonders - Project - Part 1
+
+```elixir
+defmodule SevenWonders do
+  defstruct name: "", country: ""
+  alias SevenWonders
+
+  @type t :: %SevenWonders{
+          name: String.t(),
+          country: String.t()
+        }
+
+  @spec all :: [t()]
+  def all() do
+    [
+      %SevenWonders{name: "Taj Mahal", country: "India"},
+      %SevenWonders{name: "Chichen Itza", country: "Mexico"},
+      %SevenWonders{name: "Petra", country: "Jordan"},
+      %SevenWonders{name: "Machu Picchu", country: "Peru"},
+      %SevenWonders{name: "Taj Mahal", country: "India"},
+      %SevenWonders{name: "Christ the Reedemer", country: "Brazil"},
+      %SevenWonders{name: "Colosseum", country: "Italy"},
+      %SevenWonders{name: "The Great Wall of CHina", country: "China"}
+    ]
+  end
+
+  # This is a List and thw type of key that we defined. And it should return oK
+  @spec print_names([t()]) :: :ok
+  def print_names(wonders) do
+    # wonders |> Enum.each(fn %{name: name} -> IO.puts (name) end)   #Here we can also use the pipeline operator to pass wonders into a function
+    # wonders will be default input for the function and it will be transfromed  by ou function
+    Enum.each(wonders, fn %{name: name} -> IO.puts(name) end)
+  end
+
+  @spec filter_by_country([t()], String.t()) :: [t()]
+  def filter_by_country(wonders, country) do
+    # Using filter function to filter the wonder and country from an input of a  countray name
+    wonders |> Enum.filter(fn %{country: country_name} -> country_name == country end)
+  end
+end
+
+# here i am basically assigning variable all_wonders to function All that is in SevenWOnders
+all_wonders = SevenWonders.all()
+```
+
+```elixir
+
+```
+
+```elixir
+# Now I can  print names only
+SevenWonders.print_names(all_wonders)
+```
+
+```elixir
+# filtering out a wonder and a country
+SevenWonders.filter_by_country(all_wonders, "Mexico")
+```
