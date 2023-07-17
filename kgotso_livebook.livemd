@@ -455,3 +455,24 @@ end
 # Input number is 3. So we expect 3 2 1 0 to be printed
 Recursion.upto(3)
 ```
+
+This code below here prints digits in Ascending Stage
+
+```elixir
+defmodule Recursion1 do
+  # This is a base case, incse the input is zero, return zero and exit
+  def upto(0), do: 0
+
+  # Receives an input number
+  def upto(nums) do
+    # This function needs to be exhausted. Basically if your inout is 3 ...
+    upto(nums - 1)
+    # .. it means upto is going subtract 1 from three until it reaches zero ...
+    # ...  then when it reaches zero, its gonna print zero then go to IO.puts
+    # This statement here does nothing until upto is exhausted, then its gonna print pending task in descending order
+    IO.puts(nums)
+  end
+end
+
+Recursion1.upto(3)
+```
