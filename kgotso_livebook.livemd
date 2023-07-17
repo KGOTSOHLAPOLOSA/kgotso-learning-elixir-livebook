@@ -493,3 +493,29 @@ end
 
 Recursion2.upto(3)
 ```
+
+## Recursion - Tail Recursion - Sum Digits
+
+We can repeat the same function using Tail Recursion
+
+```elixir
+defmodule Recursive3 do
+  def upto(0), do: 0
+
+  def upto(num) do
+    upto_tail_rec(num)
+  end
+
+  # function defination. It accepts num as input. The accumulator is set to default \\ zero
+  def upto_tail_rec(num, acc \\ 0)
+  # base case cond 
+  def upto_tail_rec(0, acc), do: acc
+
+  def upto_tail_rec(num, acc) do
+    # recursive call. It will exit when it looks like (0,6). therefore returns 6 
+    upto_tail_rec(num - 1, acc + num)
+  end
+end
+
+Recursive3.upto(3)
+```
