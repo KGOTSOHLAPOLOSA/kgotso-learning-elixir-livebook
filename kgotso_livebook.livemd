@@ -636,3 +636,19 @@ end
 
 Recursion9.reverse([1, 2, 3])
 ```
+
+## Map
+
+```elixir
+defmodule Recursion10 do
+  def map(elements, func, acc \\ [])
+  def map([], _, acc), do: acc |> reverse(acc)
+  def map([h | t], func, acc), do: map(t, func, [func.(h) | acc])
+end
+
+Recursion10.map([1, 2, 3], fn x -> x * 2 end)
+```
+
+## Concat
+
+
