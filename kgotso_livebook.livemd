@@ -476,3 +476,20 @@ end
 
 Recursion1.upto(3)
 ```
+
+## Recursion- Sum degits
+
+```elixir
+defmodule Recursion2 do
+  # this is a base case 
+  def upto(0), do: 0
+
+  # Recursice case statement
+  def upto(num) do
+    # The function upto has to be exhausted. Remember only the last ouput of the recursion is returned
+    num + upto(num - 1)
+  end
+end
+
+Recursion2.upto(3)
+```
