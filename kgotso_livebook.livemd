@@ -595,3 +595,17 @@ end
 
 Recursion7.sum_simple([1, 2, 3])
 ```
+
+Lets do the same function using Tail Recursion
+
+```elixir
+defmodule Recursion8 do
+  def sum(nums), do: sum_tail_rec(nums)
+
+  def sum_tail_rec(nums, acc \\ 0)
+  def sum_tail_rec([], acc), do: acc
+  def sum_tail_rec([h | t], acc), do: sum_tail_rec(t, acc + h)
+end
+
+Recursion8.sum([1, 2, 3])
+```
