@@ -709,6 +709,25 @@ defmodule SevenWonders do
     # Using filter function to filter the wonder and country from an input of a  countray name
     wonders |> Enum.filter(fn %{country: country_name} -> country_name == country end)
   end
+
+  # ---------------------- PART 2 ----------------- 
+
+  # Sorting out by the length of the characters in coyntry's name. In Ascending Order
+  def sort_by_country_length(wonders) do
+    wonders |> Enum.sort(fn x, y -> String.length(x.country) < String.length(y.country) end)
+  end
+
+  # Country list using reduce function
+  def name_country_list(wonders) do
+    wonders |> Enum.reduce([], fn wonder, acc -> [[wonder.name, wonder.country] | acc] end)
+  end
+
+  # Country list using reduce function. 
+  def name_country_keyword_list(wonders) do
+    # returning a turple  "wonder: country"
+    wonders
+    |> Enum.reduce([], fn wonder, acc -> [{String.to_atom(wonder.name), wonder.country} | acc] end)
+  end
 end
 
 # here i am basically assigning variable all_wonders to function All that is in SevenWOnders
@@ -719,12 +738,47 @@ all_wonders = SevenWonders.all()
 
 ```
 
+This function below calls print_names in the module Seven Wonders, and it is being passed all_wonders
+
 ```elixir
 # Now I can  print names only
 SevenWonders.print_names(all_wonders)
 ```
 
+This function below calls filter_by_a_country that is in SevenWonders module, and it is being passed  all_wonders and country name
+
 ```elixir
 # filtering out a wonder and a country
 SevenWonders.filter_by_country(all_wonders, "Mexico")
+```
+
+Sorting by the lenght of the country's name
+
+```elixir
+SevenWonders.sort_by_country_length(all_wonders)
+```
+
+Reducing to the format: Wonder, Name of the country
+
+```elixir
+SevenWonders.name_country_list(all_wonders)
+```
+
+Returning a turple using a reduce function:
+
+```elixir
+SevenWonders.name_country_keyword_list(all_wonders)
+```
+
+We can use Map as shorter verion to retun names of wonders:
+
+```elixir
+Enum.map(all_wonders, fn wonder -> wonder.name end)
+```
+
+You can even use a much shorter version tuo return the name of the wonder:
+
+```elixir
+# reference to an anonymous function, and this function is going to return the name back
+Enum.map(all_wonders, & &1.name)
 ```
