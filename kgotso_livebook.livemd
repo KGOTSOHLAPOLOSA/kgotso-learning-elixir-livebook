@@ -578,3 +578,20 @@ end
 
 Recursion6.of(321)
 ```
+
+## List -and- Recursion
+
+Remmber Lists in Elixir are Linked list
+if we  have: list [1,2,3]
+It means we have 3 nodes.
+[1,]->[2,]->[3,]->nul.  Tail of node 1 is ponting to Head of 2. Tail of node 2 is pointing to Head of 3. Tail of 3 is pointing to Nul.
+
+```elixir
+defmodule Recursion7 do
+  def sum_simple([]), do: 0
+  # Remeber if u have [1,2,3], [h|t] => h=1 and t=2,3
+  def sum_simple([h | t]), do: h + sum_simple(t)
+end
+
+Recursion7.sum_simple([1, 2, 3])
+```
