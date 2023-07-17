@@ -881,3 +881,33 @@ Update an expense inside a Sample List:
 ```elixir
 Expense.update_amount("iphone", 8000)
 ```
+
+## With statement - dealing with multiple conditions
+
+we going to use an example of a web application. We know for in a web, for a user to login, mutliple conditions needs to me met i.e Authenticate and Verify password
+
+```elixir
+#login -> authenticate, verify_passoword
+
+@users ["Kgotso", "Avi", "Mags"]  #dummy database
+
+def authenticate(user) when user in @users, do: {:ok, "authorized"} #if user exist in database, authorize
+def authenticate(_), do: {:error, "unauthorized"} #if users is not in database, dont authorize
+
+def verify_password{user, _password} when user in @users, do: {:ok, "password verified"}
+def verify_password{_user, password}, do {:error, "wrong password"}
+
+def login(user, password) do
+  with {:ok, _auth_msg} <- authenticate(user),
+  {:ok, _msg} <-
+  
+  verify_password(user, password) do
+    {:ok, "#{user} logged in succesfully"}
+  else
+    {:error, msg} -> {:error, msg}
+    _ -> :unauthorized
+  end
+end
+
+end
+```
