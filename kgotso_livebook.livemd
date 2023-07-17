@@ -642,7 +642,7 @@ Recursion9.reverse([1, 2, 3])
 ```elixir
 defmodule Recursion10 do
   def map(elements, func, acc \\ [])
-  def map([], _, acc), do: acc |> reverse(acc)
+  def map([], _, acc), do: acc |> Recursion9.reverse(acc)
   def map([h | t], func, acc), do: map(t, func, [func.(h) | acc])
 end
 
@@ -651,4 +651,21 @@ Recursion10.map([1, 2, 3], fn x -> x * 2 end)
 
 ## Concat
 
+Suppose u want to add to Lists [1,2,3] + [4,5,6] to get [1,2,3,4,5,6].
 
+We know from previous lessons that its harder to add  Tail to HEad as you have to go through the list, this makes it complex.
+
+the simplest way is to start first by reversing the list, then adding the Tail of the reverse list to the Heads of the destinatin. PSUEDO:
+
+[1,2,3] |> [3,2,1] |> [1,2,3,4,5,6]
+
+```elixir
+defmodule Recursion11 do
+  @spec concat([any()], [any()]) :: [any()]
+  def concat(src, dst), do: concat_func(src |> Recursion9.reverse(), dst)
+  defp concat_func([], dst), do: dst
+  defp concat_func([h | t], dst), do: concat_func(t, [h | dst])
+end
+
+Recursion11.concat([1, 2, 3], [4, 5, 6])
+```
