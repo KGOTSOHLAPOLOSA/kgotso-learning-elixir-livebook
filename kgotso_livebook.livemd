@@ -549,3 +549,32 @@ end
 
 Recursion5.of_tail_rec(3)
 ```
+
+## Recursion- Reverse Numbers
+
+Here is the simple psudo code of reversing numbers:
+
+```elixir
+# num = 0
+# acc = 321
+# loop:
+#     new_num = 1/10 = 0
+#     new_acc = 32 * 10 (320) + 1 % 10 (1) = 321
+#       repeat till num becomes zero
+# return acc
+
+defmodule Recursion6 do
+  def of(num, acc \\ 0)
+  def of(0, acc), do: acc
+
+  def of(num, acc) do
+    # div(123,10) = 12.12 0R 123/10 = 12.3
+    new_num = div(num, 10)
+    # rem(123,10) = 3
+    new_acc = acc * 10 + rem(num, 10)
+    of(new_num, new_acc)
+  end
+end
+
+Recursion6.of(321)
+```
