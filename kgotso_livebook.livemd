@@ -1067,3 +1067,19 @@ data = [3, 5, 2, 5, 1, 5, 4]
 IO.puts("Data: #{data}")
 IO.puts("Mode: #{Mode.mode(data)}")
 ```
+
+## Conclusion - My Learning Experience
+
+After watching the 5 hours long Free Code Camp, it took me approximately  7 days to finish it. So far I am confident with understanding the different data types and data structure. Here is the plan:
+
+* Do more advanced Livebook example
+
+* My IDE is working, but I cant say I am confident yet
+
+* Do atleast one advanced project on VSCode
+
+My ratings to different components so far:
+
+* IDE = 5/10
+* Elixir = 5/10
+* Terminals = 7/10
