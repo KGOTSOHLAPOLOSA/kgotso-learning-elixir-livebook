@@ -936,7 +936,7 @@ end
 WebApplication.authenticate("Kgotso")
 ```
 
-## Statistics - Project
+## Statistics - Project - Part 1 (Population Mean and Sample Mean)
 
 Sample Mean: Average of a subset of data points (sample) taken from a larger population.
 
@@ -1007,4 +1007,63 @@ end
 
 # Stats.population_mean([10,20,30])
 Stats.sample_mean([10, 20, 30])
+```
+
+## Statistics - Project - Part 2 (Meadian & Mode)
+
+Median - The median of a list of numbers is calculated by sorting the list in ascending order and then finding the middle value. If the list has an odd number of elements, the median is the middle value. If the list has an even number of elements, the median is the average of the two middle values.
+
+```elixir
+defmodule Med do
+  def median(numbers) when is_list(numbers) and length(numbers) > 0 do
+    # Sort the input list in ascending order
+    sorted_numbers = Enum.sort(numbers)
+
+    # Calculate the index of the middle element in the sorted list
+    middle_idx = div(length(sorted_numbers), 2)
+
+    # Check if the list has an even number of elements
+    if rem(length(sorted_numbers), 2) == 0 do
+      # If even, calculate the average of the two middle values
+      (List.first(Enum.drop(sorted_numbers, middle_idx - 1)) +
+         List.first(Enum.drop(sorted_numbers, middle_idx))) / 2.0
+    else
+      # If odd, return the middle value directly
+      List.first(Enum.drop(sorted_numbers, middle_idx))
+    end
+  end
+
+  # Define a fallback function to handle invalid inputs (empty list)
+  def median(_), do: {:error, "Invalid input. The list must contain at least one number."}
+end
+
+# Test the median function
+data = [5, 3, 1, 4, 2]
+
+# Print the input data
+IO.puts("Data: #{inspect(data)}")
+
+# Calculate and print the median of the data using the MathUtils module
+IO.puts("Median: #{Med.median(data)}")
+```
+
+Mode refers to the value that appears most frequently in a list of elements.
+
+Example:
+Let's say we have a list of numbers in Elixir: [3, 5, 2, 5, 1, 5, 4]. The mode of this list is 5 because it appears three times, which is more frequent than any other value in the list. To find the mode in Elixir, we would need to write a function to determine the value with the highest frequency in the list.
+
+```elixir
+defmodule Mode do
+  def mode(numbers) when is_list(numbers) and length(numbers) > 0 do
+    frequencies = Enum.frequencies(numbers)
+    Enum.max_by(frequencies, fn {_, frequency} -> frequency end) |> elem(0)
+  end
+
+  def mode(_), do: {:error, "Invalid input. The list must contain at least one number."}
+end
+
+# Test the mode function
+data = [3, 5, 2, 5, 1, 5, 4]
+IO.puts("Data: #{data}")
+IO.puts("Mode: #{Mode.mode(data)}")
 ```
